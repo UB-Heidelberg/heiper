@@ -1,0 +1,27 @@
+{
+  "name": "heiper",
+  "version": "0.0.1",
+  "description": "DOI registration client",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.ub.uni-heidelberg.de:kba/heiper"
+  },
+  "author": "kba",
+  "license": "MIT",
+  "dependencies": {
+    "ajv": "^5.2.2",
+    "axios": "^0.16.2",
+    "dot": "^1.1.2",
+    "envyconf": "0.0.5",
+    "express": "^4.15.4",
+    "js-yaml": "^3.9.1",
+    "traf": "^1.0.0"
+  },
+  "devDependencies": {
+    "tap": "^10.7.2"
+  }
+}

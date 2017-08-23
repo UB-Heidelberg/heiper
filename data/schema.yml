@@ -1,0 +1,110 @@
+type: object
+additionalProperties: false
+required:
+  - doi
+  - url
+  - place
+  - publicationDate
+  - lang
+  - title
+  - internalIdentifier
+  - license
+properties:
+  doi:
+    type: string
+    pattern: '^10'
+  place:
+    type: string
+  license:
+    $ref: '#/definitions/licenseSchema'
+  url:
+    type: string
+    format: uri
+  internalVersion:
+    type: string
+    default: '1.0'
+  internalIdentifier:
+    type: string
+  title:
+    $ref: '#/definitions/titleSchema'
+  subtitle:
+    $ref: '#/definitions/titleSchema'
+  alternativeTitle:
+    $ref: '#/definitions/titleSchema'
+  lang:
+    type: string
+    pattern: '^[a-z]{3}$'
+  publicationDate:
+    type: string
+    format: date-time
+  creators:
+    type: array
+    items:
+      oneOf:
+        - $ref: '#/definitions/corporateBodySchema'
+        - $ref: '#/definitions/personSchema'
+  type:
+    type: string
+    enum:
+      - monograph
+      - periodical
+      - multivolume_work
+      - manuscript
+      - charter
+      - issue
+      - article
+      - digital_copy
+
+definitions:
+
+  titleSchema:
+    type: object
+    additionalProperties: false
+    properties:
+      numbering:
+        type: string
+    patternProperties:
+      '^[a-z]{3}$': 
+        type: string
+
+  licenseSchema:
+    type: object
+    additionalProperties: false
+    patternProperties:
+      '^[a-z]{3}$':
+        type: object
+        required:
+          - description
+        properties:
+          url:
+            type: string
+            format: uri
+          description:
+            type: string
+
+  corporateBodySchema:
+    type: object
+    additionalProperties: false
+    required:
+      - displayForm
+    properties:
+      displayForm:
+        type: string
+      gndId:
+        type: string
+
+  personSchema:
+    type: object
+    additionalProperties: false
+    required:
+      - firstName
+      - lastName
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      gndId: 
+        type: string
+
+

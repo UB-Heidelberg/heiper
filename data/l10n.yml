@@ -1,0 +1,16 @@
+eng:
+  monograph:        'Monograph'
+  periodical:       'Periodical'
+  multivolume_work: 'Multivolume work'
+  manuscript:       'Manuscript'
+  charter:          'Charter'
+  issue:            'Issue'
+  article:          'Article'
+ger:
+  monograph:        'Monographie'
+  periodical:       'Periodikum'
+  multivolume_work: 'Mehrbändiges Werk'
+  manuscript:       'Handschrift'
+  charter:          'Urkunde'
+  issue:            'Zeitschriftenheft'
+  article:          'Artikel'
