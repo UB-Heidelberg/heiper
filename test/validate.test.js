@@ -1,28 +1,17 @@
 const tap = require('tap')
 const validate = require('../validate')
 
+const fixtures = {
+    valid: [
+        require('./fixtures/sample1.json')
+    ],
+}
+
 tap.test('validation', t => {
-    try {
-        validate({})
-    } catch (err) {
-        t.ok(true, 'failed expectedly')
-    }
-    validate({
-        doi: '10.1234/567',
-        url: 'http://ub/567',
-        license: {
-            ger: {
-                url: 'http://no.no/ger',
-                description: 'ALLES VERBOTTTEN',
-            }
-        },
-        internalIdentifier: '567',
-        publicationDate: '2000-01-01T00:00:00Z',
-        lang: 'ger',
-        title: {
-            ger: 'foo'
-        },
-    })
-    t.ok(true, 'validated as expected')
+    let err
+    t.ok(validate({}), '{} failed expectedly')
+    err = validate(fixtures.valid[0])
+    if (err) console.log(err)
+    t.notOk(err, 'this should validate')
     t.end()
 })

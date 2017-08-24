@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://www.da-ra.de/fileadmin/media/da-ra.de/Technik/dara_v3.1_de_en_18112014.xsd">
+  <resourceType>3</resourceType> <!-- TODO hardcoded 'Text' -->
+
+  <resourceTypesFree>
+  {{#each _langs as |lang|}}
+    <resourceTypeFree>
+      <language>{{iso639_1 lang}}</language>
+      <typeName>{{__ lang ../type}}</typeName>
+    </resourceTypeFree>
+  {{/each}}
+  </resourceTypesFree>
+
+  <resourceIdentifier>
+    <identifier>{{ internalIdentifier }}</identifier>
+    <currentVersion>{{ version }}</currentVersion>
+  </resourceIdentifier>
+
+  <titles>
+    {{#each title as |title lang|}}
+    <title>
+      <language>{{iso639_1 lang}}</language>
+      <titleName>{{trim 500 title }}</titleName>
+    </title>
+    {{/each}}
+  </titles>
+
+  {{#if (or subtitle alternativeTitle)}}
+  <otherTitles>
+    {{#each subtitle as |title lang|}}
+    <otherTitle>
+      <language>{{iso639_1 lang}}</language>
+      <titleName>{{trim 250 title}}</titleName>
+      <titleType>3</titleType>
+    </otherTitle>
+    {{/each}}
+  </otherTitles>
+  {{/if}}
+
+  {{#if collectiveTitle}}
+  <collectiveTitles>
+    {{#each collectiveTitle as |title lang|}}
+    {{#if (ne lang "numbering") }}
+      <collectiveTitle>
+        <language>{{iso639_1 lang}}</language>
+        <titleName>{{trim 250 title}}</titleName>
+        {{#if ../collectiveTitle.numbering }}
+        <numbering>{{../collectiveTitle.numbering}}</numbering>
+        {{/if}}
+      </collectiveTitle>
+    {{/if}}
+    {{/each}}
+  </collectiveTitles>
+  {{/if}}
+
+  <creators>
+    {{#each creators as |creator|}}
+    <creator>
+      {{#if creator.displayForm }} <!-- institution -->
+
+      <institution>
+        {{#each creator.displayForm as |name lang|}}
+        <institutionName>
+          <language>{{iso639_1 lang}}</language>
+          <name>{{name}}</name>
+        </institutionName>
+        {{/each}}
+        {{#if creator.gnd }}
+        <institutionIDs>
+          <institutionID>
+            <identifier>{{creator.gnd}}</identifier>
+            <identifierSchema>GND</identifierSchema>
+            <schemaURI>http://d-nb.info/gnd</schemaURI>
+          </institutionID>
+        </institutionIDs>
+        {{/if}}
+      </institution>
+
+      {{else}} <!-- person -->
+
+      <person>
+        <firstName>{{ creator.familyName }}</firstName>
+        <middleName>{{#if creator.middleName }}{{creator.middleName}}{{/if}}</middleName>
+        <lastName>{{ creator.lastName }}</lastName>
+        {{#if creator.gnd }}
+        <personIDs>
+          <personID>
+            <identifier>{{creator.gnd}}</identifier>
+            <identifierSchema>GND</identifierSchema>
+            <schemaURI>http://d-nb.info/gnd</schemaURI>
+          </personID>
+        </personIDs>
+        {{/if}}
+      </person>
+
+      {{/if}}
+
+    </creator>
+
+    {{else}} <!-- if no creators were given TODO make this configurable -->
+
+    <creator>
+      <institution>
+        <institutionName>
+          <language>de</language>
+          <name>NN</name>
+        </institutionName>
+      </institution>
+    </creator>
+
+    {{/each}}
+  </creators>
+
+  <dataURLs>
+    <dataURL>{{ url }}</dataURL>
+  </dataURLs>
+
+  <doiProposal>{{ doi }}</doiProposal>
+
+  <publicationDate>
+    {{#if (eq dateGranularity "monthyear")}}
+    <monthyear>{{monthyear date}}</monthyear>
+    {{else if (eq dateGranularity "year")}}
+    <year>{{year date}}</year>
+    {{else}}
+    <date>{{monthyearday date }}</date>
+    {{/if}}
+  </publicationDate>
+
+  <glPlace>{{ place }}</glPlace>
+
+  <availability>
+    <availabilityControlled>{{daraAvailability availability }}</availabilityControlled>
+  </availability>
+
+  <rights>
+    {{#each license as |license lang|}}
+    <right>
+      <language>{{iso639_1 lang}}</language>
+      <rightsText>{{license.url}} ({{license.description}})</rightsText>
+    </right>
+    {{/each}}
+  </rights>
+
+  {{#if (daraSupportedLanguage lang)}}
+  <resourceLanguage>{{lang}}</resourceLanguage>
+  {{/if}}
+
+  {{#if urn}}
+  <alternativeIDs>
+    <alternativeID>
+      <identifier>[% doi.urn|xml %]</identifier>
+      <type>URN</type>
+    </alternativeID>
+  </alternativeIDs>
+  {{/if}}
+</resource>
+
+{{! vim: set ft=xml.handlebars.html : }}

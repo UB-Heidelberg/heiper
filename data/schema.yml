@@ -2,9 +2,11 @@ type: object
 additionalProperties: false
 required:
   - doi
+  - availability
   - url
+  - type
   - place
-  - publicationDate
+  - date
   - lang
   - title
   - internalIdentifier
@@ -20,7 +22,7 @@ properties:
   url:
     type: string
     format: uri
-  internalVersion:
+  version:
     type: string
     default: '1.0'
   internalIdentifier:
@@ -31,12 +33,29 @@ properties:
     $ref: '#/definitions/titleSchema'
   alternativeTitle:
     $ref: '#/definitions/titleSchema'
+  collectiveTitle:
+    $ref: '#/definitions/titleSchema'
+  availability:
+    type: string
+    enum:
+      - download
+      - delivery
+      - onsite
+      - none
+      - unknown
   lang:
     type: string
     pattern: '^[a-z]{3}$'
-  publicationDate:
+  date:
     type: string
     format: date-time
+  dateGranularity:
+    type: string
+    default: 'full'
+    enum:
+      - monthyear
+      - year
+      - full
   creators:
     type: array
     items:
@@ -89,8 +108,11 @@ definitions:
       - displayForm
     properties:
       displayForm:
-        type: string
-      gndId:
+        type: object
+        patternProperties:
+          '^[a-z]{3}$':
+            type: string
+      gnd:
         type: string
 
   personSchema:
@@ -104,7 +126,9 @@ definitions:
         type: string
       lastName:
         type: string
-      gndId: 
+      middleName:
+        type: string
+      gnd: 
         type: string
 
 

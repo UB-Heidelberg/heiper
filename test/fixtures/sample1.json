@@ -1,0 +1,29 @@
+{
+    "doi": "10.1234/567",
+    "url": "http://ub/567",
+    "type": "monograph",
+    "license": {
+        "ger": {
+            "url": "http://no.no/ger",
+            "description": "ALLES VERBOTTTEN"
+        }
+    },
+    "internalIdentifier": "567",
+    "date": "2000-01-01T00:00:00Z",
+    "place": "here",
+    "lang": "gre",
+    "subtitle": {
+        "eng": "Read it it is so awesome OMG",
+        "ger": "Los lies is voll hammer"
+    },
+    "title": {
+        "eng": "A fancy title of much fanciness, also lengthy and pointless and much, much more.",
+        "ger": "A FANCY TITLE OF MUCH FANCINESS, ALSO LENGTHY AND POINTLESS AND MUCH, MUCH MORE."
+    },
+    "collectiveTitle": {
+        "ger": "Ein toller Sammelband",
+        "eng": "What a collection",
+        "numbering": "Nov 2000"
+    },
+    "availability": "download"
+}

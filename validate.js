@@ -1,6 +1,7 @@
 const Ajv = require('ajv')
 const ajv = new Ajv({
-    allErrors: true
+    allErrors: true,
+    useDefaults: true, // This will expand defaults defined in the schema in the data
 })
 const traf = new(require('traf'))()
 
@@ -9,11 +10,6 @@ const validate = ajv.compile(schemaJSON)
 
 module.exports = function(input) {
     const valid = validate(input)
-    if (!valid) {
-        const err = new Error("Invalid data")
-        err.errors = validate.errors
-        throw err
-    }
-    return true
+    return validate.errors
 }
 
