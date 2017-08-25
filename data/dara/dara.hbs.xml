@@ -58,7 +58,7 @@
   <creators>
     {{#each creators as |creator|}}
     <creator>
-      {{#if creator.displayForm }} <!-- institution -->
+      {{#if (eq creator.type "corporateBody") }} <!-- corporateBody -->
 
       <institution>
         {{#each creator.displayForm as |name lang|}}
@@ -81,18 +81,20 @@
       {{else}} <!-- person -->
 
       <person>
-        <firstName>{{ creator.familyName }}</firstName>
-        <middleName>{{#if creator.middleName }}{{creator.middleName}}{{/if}}</middleName>
-        <lastName>{{ creator.lastName }}</lastName>
-        {{#if creator.gnd }}
+        {{#with creator}}
+        {{#if firstName }}<firstName>{{ firstName }}</firstName>{{/if}}
+        {{#if middleName}}<middleName>{{ middleName }}</middleName>{{/if}}
+        {{#if lastName}}<lastName>{{ lastName }}</lastName>{{/if}}
+        {{#if gnd }}
         <personIDs>
           <personID>
-            <identifier>{{creator.gnd}}</identifier>
+            <identifier>{{gnd}}</identifier>
             <identifierSchema>GND</identifierSchema>
             <schemaURI>http://d-nb.info/gnd</schemaURI>
           </personID>
         </personIDs>
         {{/if}}
+        {{/with}}
       </person>
 
       {{/if}}
