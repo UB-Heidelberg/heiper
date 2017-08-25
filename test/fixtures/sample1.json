@@ -2,6 +2,23 @@
     "doi": "10.1234/567",
     "url": "http://ub/567",
     "type": "monograph",
+    "creators": [
+      {
+        "displayForm": {
+          "eng": "Writing, Inc."
+        },
+        "type": "corporateBody"
+      },
+      {
+        "displayForm": {
+          "ger": "John E. Doe"
+        },
+        "firstName": "John",
+        "middleName": "Eustace",
+        "lastName": "Doe",
+        "type": "person"
+      }
+    ],
     "license": {
         "ger": {
             "url": "http://no.no/ger",

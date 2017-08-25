@@ -1,0 +1,17 @@
+apps:
+  - name:   "heiper-dev"
+    script: "bin/heiper-server"
+    autorestart: true
+    no_daemon: true
+    restart_delay: 1000
+    env:
+      HEIPER_DARA_DIGLIT_USERNAME: "ubhd"
+      HEIPER_DARA_DIGLIT_PASSWORD: ""
+      HEIPER_DARA_HEIUP_USERNAME: "heiup"
+      HEIPER_DARA_HEIUP_PASSWORD: ""
+      HEIPER_DARA_PROPYLAEUM_USERNAME: "propy"
+      HEIPER_DARA_PROPYLAEUM_PASSWORD: ""
+      HEIPER_DARA_ARTHISTORICUM_USERNAME: "arthistoricum"
+      HEIPER_DARA_ARTHISTORICUM_PASSWORD: ""
+      HEIPER_DATACITE_UBHD_USERNAME: 'ubhd'
+      HEIPER_DATACITE_UBHD_PASSWORD: ''

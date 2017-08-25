@@ -5,7 +5,7 @@ const ajv = new Ajv({
 })
 const traf = new(require('traf'))()
 
-const schemaJSON = traf.parseFileSync(`${__dirname}/data/schema.yml`)
+const schemaJSON = traf.parseFileSync(`${__dirname}/../data/schema.yml`)
 const validate = ajv.compile(schemaJSON)
 
 module.exports = function(input) {

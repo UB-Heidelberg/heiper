@@ -1,5 +1,5 @@
 const traf = new(require('traf'))()
-const l10nData = traf.parseFileSync(`${__dirname}/data/l10n.yml`)
+const l10nData = traf.parseFileSync(`${__dirname}/../data/l10n.yml`)
 
 const iso639_2_to_1 = {}
 const iso639_1_to_2 = {}

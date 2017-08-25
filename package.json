@@ -21,6 +21,7 @@
     "envyconf": "0.0.5",
     "express": "^4.15.4",
     "handlebars": "^4.0.10",
+    "pm2": "^2.6.1",
     "temp-write": "^3.3.0",
     "traf": "^1.0.0"
   },
