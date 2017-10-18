@@ -11,9 +11,13 @@
     {{#with creator}}
 
     <creator>
-      <creatorName>{{ displayForm }}</creatorName>
+      {{#if displayForm.eng }}
+      <creatorName>{{ displayForm.eng }}</creatorName>
+      {{else}}
+      <creatorName>{{ displayForm.ger }}</creatorName>
+      {{/if}}
       {{#if firstName}}<givenName>{{ firstName }}</givenName>{{/if}}
-      {{#if familyName}}<familyName>{{ familyName }}</familyName>{{/if}}
+      {{#if lastName}}<familyName>{{ lastName }}</familyName>{{/if}}
       {{#if gnd}}<nameIdentifier schemeURI="http://d-nb.info/gnd" nameIdentifierScheme="GND">{{ gnd }}</nameIdentifier>{{/if}}
     </creator>
 

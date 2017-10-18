@@ -3,6 +3,7 @@ apps:
     script: "bin/heiper-server"
     autorestart: true
     no_daemon: true
+    watch: true
     restart_delay: 1000
     env:
       HEIPER_DARA_DIGLIT_USERNAME: "ubhd"

@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-require('../src/server').createServer().listen(8989)
+const PORT = parseInt('PORT' in process.env ? process.env.PORT : 8989)
+console.log(`*** Starting heiper server on port ${PORT} ***`)
+require('../src/server').createServer().listen(PORT)

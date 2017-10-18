@@ -1,5 +1,14 @@
 # heiper
 
+## Installation
+
+```
+sudo apt install xmllint
+npm install
+npm install -g pm2
+pm2 start pm2.prod.yml
+```
+
 
 ## Metadata schema
 
