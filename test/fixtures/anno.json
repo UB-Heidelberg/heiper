@@ -1,0 +1,27 @@
+{
+    "doi": "10.5072/anno.diglit.5aabc437ef4d3",
+    "url": "http://digi.ub.uni-heidelberg.de/anno/5aabc437ef4d3",
+    "type": "digital_copy",
+    "creators": [
+        {
+            "displayForm": {
+                "eng": "Bettina Müller"
+            },
+            "type": "person"
+        }
+    ],
+    "license": {
+        "eng": {
+            "url": "https://creativecommons.org/licenses/by/4.0/",
+            "description": "Creative Commons CC-BY 4.0"
+        }
+    },
+    "internalIdentifier": "5aabc437ef4d3",
+    "date": "2015-12-09T11:27:13.273+01:00",
+    "place": "Heidelberg",
+    "lang": "ger",
+    "title": {
+        "eng": "Test BM"
+    },
+    "availability": "download"
+}
