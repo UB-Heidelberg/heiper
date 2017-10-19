@@ -2,11 +2,11 @@ const fetch = require('node-fetch')
 const {envyLog} = require('envyconf')
 const xsdValidate = require('./xsd')
 
-function authHeader(username, password) {
-  return 'Basic ' + Buffer.from(`${username}:${password}`).toString('base64')
-}
+module.exports = class BasePlugin {
 
-module.exports = class DatacitePlugin {
+  static authHeader(username, password) {
+    return 'Basic ' + Buffer.from(`${username}:${password}`).toString('base64')
+  }
 
   constructor({template, xsdPath, configDefaults, config}) {
     this.config = Object.assign({}, configDefaults, config)
@@ -33,14 +33,17 @@ module.exports = class DatacitePlugin {
     const {USERNAME, PASSWORD} = this.config
     return new Promise((resolve, reject) => {
       validateOrNot
-        .then(() => fetch(endpoint, {
+        .then(() => {
+          console.log(`Registering ${input.doi} -> ${input.url} @ ${endpoint}`)
+          return fetch(endpoint, {
             method: 'POST',
             body: xml,
             headers: {
               'Content-Type': 'application/xml',
-              'Authorization': authHeader(USERNAME, PASSWORD),
+              'Authorization': BasePlugin.authHeader(USERNAME, PASSWORD),
             }
-        }))
+          })
+        })
         .then(res => {
           const {status} = res
           res.text().then(data => {
