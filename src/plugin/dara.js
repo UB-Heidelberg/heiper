@@ -26,7 +26,7 @@ module.exports = class DaraPlugin extends Plugin {
             xsdPath: `${__dirname}/../../data/dara/dara-3.1.xsd`,
             configDefaults: {
                 ENDPOINT: 'https://www.da-ra.de/dara/study/importXML',
-                ENDPOINT_TEST: 'https://dara-test.gesis.org:8084/dara/study/importXML',
+                ENDPOINT_SANDBOX: 'https://dara-test.gesis.org:8084/dara/study/importXML',
                 FORCE_NEW_VERSION: false,
                 INTERNAL_IDENTIFIER_PREFIX: '',
             },

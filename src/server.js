@@ -17,7 +17,7 @@ function createServer() {
                 const input = req.body
                 const invalid = validate(input)
                 const opts = {
-                    test: req.query.test && req.query.test.match(/true|1/),
+                    useSandbox: req.query.sandbox && req.query.sandbox.match(/true|1/),
                     dryRun: req.query.dryRun && req.query.dryRun.match(/true|1/),
                 }
                 if (invalid) return res.status(400).send({message: 'Validation failed', errors: invalid})

@@ -24,10 +24,10 @@ module.exports = class BasePlugin {
 
   registerDOI(input, opts={}) {
     opts = Object.assign({
-      test: false,
+      useSandbox: false,
       validate: true,
     }, opts)
-    const endpoint = this.config[`ENDPOINT${opts.test ? '_TEST' : ''}`]
+    const endpoint = this.config[`ENDPOINT${opts.useSandbox ? '_SANDBOX' : ''}`]
     const xml = this.template(input)
     const validateOrNot = opts.validate ? xsdValidate(xml, this.xsdPath) : Promise.resolve()
     const {USERNAME, PASSWORD} = this.config

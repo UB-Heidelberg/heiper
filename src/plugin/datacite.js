@@ -11,9 +11,9 @@ module.exports = class DaraPlugin extends Plugin {
             xsdPath: `${__dirname}/../../data/datacite/metadata40.xsd`,
             configDefaults: {
                 ENDPOINT: 'https://mds.datacite.org/metadata',
-                ENDPOINT_TEST: 'https://mds.test.datacite.org/metadata',
+                ENDPOINT_SANDBOX: 'https://mds.test.datacite.org/metadata',
                 ENDPOINT_MINT: 'https://mds.datacite.org/doi',
-                ENDPOINT_MINT_TEST: 'https://mds.test.datacite.org/doi',
+                ENDPOINT_MINT_SANDBOX: 'https://mds.test.datacite.org/doi',
                 FORCE_NEW_VERSION: false,
             },
             config
@@ -25,7 +25,7 @@ module.exports = class DaraPlugin extends Plugin {
         return super.registerDOI(input, opts)
             .then(({status, data}) => {
                 console.log({status, data})
-                const endpoint = this.config[`ENDPOINT_MINT${opts.test ? '_TEST' : ''}`]
+                const endpoint = this.config[`ENDPOINT_MINT${opts.useSandbox ? '_SANDBOX' : ''}`]
                 const body = `doi=${input.doi}\nurl=${input.url}\n`
                 console.log(`Registered metadata, now registering handle at ${endpoint}: ${body}`)
                 return fetch(endpoint, {
