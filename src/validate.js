@@ -9,7 +9,7 @@ const schemaJSON = traf.parseFileSync(`${__dirname}/../data/schema.yml`)
 const validate = ajv.compile(schemaJSON)
 
 module.exports = function(input) {
-    const valid = validate(input)
+    validate(input)
     return validate.errors
 }
 

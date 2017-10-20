@@ -15,11 +15,11 @@ function createServer() {
 
             app.post(`/${pluginName}/${profile}`, (req, res, next) => {
                 const input = req.body
-                const invalid = validate(input)
                 const opts = {
                     useSandbox: req.query.sandbox && req.query.sandbox.match(/true|1/),
                     dryRun: req.query.dryRun && req.query.dryRun.match(/true|1/),
                 }
+                const invalid = validate(input)
                 if (invalid) return res.status(400).send({message: 'Validation failed', errors: invalid})
                 else if (opts.dryRun) return res.status(200).send({valid:true})
                 plugin.registerDOI(input, opts)

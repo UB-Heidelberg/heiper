@@ -8,7 +8,7 @@ module.exports = class BasePlugin {
     return 'Basic ' + Buffer.from(`${username}:${password}`).toString('base64')
   }
 
-  constructor({template, xsdPath, configDefaults, config}) {
+  constructor({template, xsdPath, configDefaults={}, config={}}) {
     this.config = Object.assign({}, configDefaults, config)
     ;[
       'USERNAME',
