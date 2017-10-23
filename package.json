@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "tap test/*.test.js",
-    "watch": "nodemon -e 'js,xml' bin/heiper"
+    "watch": "nodemon -e 'js,xml' bin/heiper-server"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
     "envyconf": "0.0.5",
     "express": "^4.15.4",
     "handlebars": "^4.0.10",
+    "morgan": "1.9.0",
     "node-fetch": "^1.7.3",
     "temp-write": "^3.3.0",
     "traf": "^1.0.0"
