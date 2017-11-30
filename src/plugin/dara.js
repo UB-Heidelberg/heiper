@@ -23,7 +23,7 @@ module.exports = class DaraPlugin extends Plugin {
                 daraAvailability: k => daraAvailability[k],
                 daraSupportedLanguage: k => daraSupportedLanguage.has(k),
             }),
-            xsdPath: `${__dirname}/../../data/dara/dara-3.1.xsd`,
+            xsdPath: `${__dirname}/../../data/dara/dara-${config.DARA_VERSION || '3.1'}.xsd`,
             configDefaults: {
                 ENDPOINT: 'https://www.da-ra.de/dara/study/importXML',
                 ENDPOINT_SANDBOX: 'https://dara-test.gesis.org:8084/dara/study/importXML',
