@@ -1,5 +1,17 @@
 # heiper
 
+<!-- BEGIN-MARKDOWN-TOC -->
+* [Installation](#installation)
+* [Metadata schema](#metadata-schema)
+* [Data model](#data-model)
+	* [Plugins](#plugins)
+	* [Profiles](#profiles)
+	* [Configuration](#configuration)
+* [Documentation / Specs](#documentation--specs)
+	* [dara](#dara)
+
+<!-- END-MARKDOWN-TOC -->
+
 ## Installation
 
 ```
@@ -37,3 +49,10 @@ All configuration happens via environment variables.
 ```
 HEIPER_<PLUGIN>_<PROFILE>_<VARNAME>="<VALUE>"
 ```
+
+## Documentation / Specs
+
+### dara
+
+* [Specs for 3.1 Data Model](https://doi.org/10.4232/10.mdsdoc.3.1)
+* [Specs for 4.0 Data Model](https://www.da-ra.de/fileadmin/media/da-ra.de/PDFs/FINAL_GESIS-Paper_25-2017.pdf)
