@@ -7,6 +7,15 @@ const daraAvailability = {
     none:     4,
     unknown:  5,
 }
+
+const daraAvailability4 = {
+    download: 'Download',
+    delivery: 'Delivery',
+    onsite:   'OnSite',
+    none:     'NotAvailable',
+    unknown:  'Unknown',
+}
+
 const daraSupportedLanguage = new Set([
     'bel', 'bos', 'cze', 'dut', 'eng',
     'est', 'fin', 'fre', 'ger', 'gre',
@@ -19,8 +28,9 @@ module.exports = class DaraPlugin extends Plugin {
 
     constructor(config) {
         super({
-            template: require('../template')(`${__dirname}/../../data/dara/dara.hbs.xml`, {
+            template: require('../template')(`${__dirname}/../../data/dara/dara-${config.DARA_VERSION || '3.1'}.hbs.xml`, {
                 daraAvailability: k => daraAvailability[k],
+                daraAvailability4: k => daraAvailability4[k],
                 daraSupportedLanguage: k => daraSupportedLanguage.has(k),
             }),
             xsdPath: `${__dirname}/../../data/dara/dara-${config.DARA_VERSION || '3.1'}.xsd`,
