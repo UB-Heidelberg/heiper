@@ -22,6 +22,10 @@ module.exports = class BasePlugin {
     this.log = envyLog('HEIPER')
   }
 
+  validateXML(xml) {
+    return xsdValidate(xml, this.xsdPath)
+  }
+
   registerDOI(input, opts={}) {
     opts = Object.assign({
       useSandbox: false,
@@ -29,7 +33,7 @@ module.exports = class BasePlugin {
     }, opts)
     const endpoint = this.config[`ENDPOINT${opts.useSandbox ? '_SANDBOX' : ''}`]
     const xml = this.template(input)
-    const validateOrNot = opts.validate ? xsdValidate(xml, this.xsdPath) : Promise.resolve()
+    const validateOrNot = opts.validate ? this.validateXML(xml) : Promise.resolve()
     const {USERNAME, PASSWORD} = this.config
     return new Promise((resolve, reject) => {
       validateOrNot

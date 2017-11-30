@@ -15,7 +15,8 @@ tap.test('validate', t => {
 
   fixtures.valid.map((fixture, i) => {
     const err = validate(fixture)
-    if (err) console.log(err)
+    if (err)
+      console.log(err)
     t.notOk(err, `valid[${i}] should validate`)
   })
 })
