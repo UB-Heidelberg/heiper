@@ -19,14 +19,14 @@
     "dot": "^1.1.2",
     "envyconf": "0.0.5",
     "express": "^4.16.4",
-    "handlebars": "^4.0.12",
-    "morgan": "1.9.0",
+    "handlebars": "^4.1.0",
+    "morgan": "^1.9.1",
     "node-fetch": "^1.7.3",
     "temp-write": "^3.3.0",
     "traf": "^1.0.0"
   },
   "devDependencies": {
-    "pm2": "2.7.2",
-    "tap": "^11.1.5"
+    "pm2": "^3.3.0",
+    "tap": "^12.5.3"
   }
 }
