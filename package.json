@@ -16,10 +16,9 @@
   "dependencies": {
     "ajv": "^5.2.2",
     "child-process-promise": "^2.2.1",
-    "dot": "^1.1.2",
     "envyconf": "0.0.5",
     "express": "^4.16.4",
-    "handlebars": "^4.1.0",
+    "handlebars": "^4.1.2",
     "morgan": "^1.9.1",
     "node-fetch": "^1.7.3",
     "temp-write": "^3.3.0",
@@ -27,6 +26,6 @@
   },
   "devDependencies": {
     "pm2": "^3.3.0",
-    "tap": "^12.5.3"
+    "tap": "^14.6.1"
   }
 }
