@@ -22,6 +22,7 @@ function createServer() {
             if (!Array.isArray(req.body)) {
               return res.status(400).send({error: "Must pass an array of JSON objects"})
             }
+            console.log("Request body:", JSON.stringify(req.body, null, 2));
             Promise.all(req.body.map(input => {
               const invalid = validate(input)
               if (invalid) return Promise.reject({
@@ -32,14 +33,19 @@ function createServer() {
                 status: 200,
                 data: {valid: ! invalid}
               })
-              return new Promise((resolve, reject) => {
-                plugin.registerDOI(input, opts)
-                  .then(data => resolve(data))
-                  .catch(reject)
-              })
+              return plugin.registerDOI(input, opts)
             }))
               .then(registered => {res.status(201).send(registered)})
-              .catch(({status, data}) => res.status(status).send(data))
+              .catch((err) => {
+                let status = 400
+                let data = err
+                if ('status' in err) {
+                  status = err.status
+                  data = err.data
+                }
+                console.log(err)
+                res.status(status).send(data)
+              })
           })
         })
     })

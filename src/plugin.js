@@ -36,29 +36,27 @@ module.exports = class BasePlugin {
     const validateOrNot = opts.validate ? this.validateXML(xml) : Promise.resolve()
     const {USERNAME, PASSWORD} = this.config
     return new Promise((resolve, reject) => {
-      validateOrNot
-        .then(() => {
-          console.log(`Registering ${input.doi} -> ${input.url} @ ${endpoint}`)
-          return fetch(endpoint, {
-            method: 'POST',
-            body: xml,
-            headers: {
-              'Content-Type': 'application/xml',
-              'Authorization': BasePlugin.authHeader(USERNAME, PASSWORD),
-            }
-          })
+      validateOrNot.then(() => {
+        console.log(`Registering ${input.doi} -> ${input.url} @ ${endpoint}`)
+        return fetch(endpoint, {
+          method: 'POST',
+          body: xml,
+          headers: {
+            'Content-Type': 'application/xml',
+            'Authorization': BasePlugin.authHeader(USERNAME, PASSWORD),
+          }
         })
-        .then(res => {
-          const {status} = res
-          res.text().then(data => {
-            console.log("RESP", {status, data})
-            if (res.status >= 400) {
-              reject({status, data})
-            } else {
-              resolve(res)
-            }
-          })
+      }).then(res => {
+        const {status} = res
+        res.text().then(data => {
+          console.log("RESP", {status, data})
+          if (res.status >= 400) {
+            reject({status, data})
+          } else {
+            resolve(res)
+          }
         })
+      }).catch(reject)
     })
 
   }
