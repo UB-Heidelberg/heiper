@@ -6,7 +6,5 @@ cache:
 
 test:
   script:
-   # use Node Version Manager to switch to latest lts release
-   - nvm use lts/erbium
    - npm install
    - npm test
