@@ -18,14 +18,14 @@
     "child-process-promise": "^2.2.1",
     "envyconf": "0.0.5",
     "express": "^4.16.4",
-    "handlebars": "^4.7.2",
+    "handlebars": "^4.7.6",
     "morgan": "^1.9.1",
-    "node-fetch": "^1.7.3",
+    "node-fetch": "^2.6.1",
     "temp-write": "^3.3.0",
     "traf": "^1.1.0"
   },
   "devDependencies": {
-    "pm2": "^3.3.0",
-    "tap": "^14.6.1"
+    "pm2": "^4.4.1",
+    "tap": "^14.10.8"
   }
 }
