@@ -14,18 +14,20 @@
   "author": "kba",
   "license": "MIT",
   "dependencies": {
-    "ajv": "^5.2.2",
+    "ajv": "^7.0.3",
+    "ajv-formats": "^1.5.1",
     "child-process-promise": "^2.2.1",
-    "envyconf": "0.0.5",
-    "express": "^4.16.4",
+    "envyconf": "0.0.7",
+    "express": "^4.17.1",
     "handlebars": "^4.7.6",
-    "morgan": "^1.9.1",
+    "morgan": "^1.10.0",
     "node-fetch": "^2.6.1",
-    "temp-write": "^3.3.0",
+    "temp-write": "^4.0.0",
     "traf": "^1.1.0"
   },
   "devDependencies": {
-    "pm2": "^4.4.1",
-    "tap": "^14.10.8"
+    "pm2": "^4.5.1",
+    "tap": "^14.11.0"
   }
 }
+q
