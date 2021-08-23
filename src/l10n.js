@@ -1,5 +1,7 @@
-const traf = new(require('traf'))()
-const l10nData = traf.parseFileSync(`${__dirname}/../data/l10n.yml`)
+const fs = require("fs");
+const YAML = require('yaml')
+const l10nYAML = fs.readFileSync(`${__dirname}/../data/l10n.yml`, 'utf8')
+const l10nData = YAML.parse(l10nYAML)
 
 const iso639_2_to_1 = {}
 const iso639_1_to_2 = {}

@@ -1,3 +1,5 @@
+const fs = require('fs')
+const YAML = require('yaml')
 const Ajv = require('ajv').default
 // Required vor v7 of ajv.
 // See https://ajv.js.org/docs/validation.html#formats
@@ -8,10 +10,9 @@ const ajv = new Ajv({
     useDefaults: true, // This will expand defaults defined in the schema in the data
 })
 addFormats(ajv)
-const traf = new(require('traf'))()
-
-const schemaJSON = traf.parseFileSync(`${__dirname}/../data/schema.yml`)
-const validate = ajv.compile(schemaJSON)
+const schemaYAMLString = fs.readFileSync(`${__dirname}/../data/schema.yml`, 'utf8')
+const schema = YAML.parse(schemaYAMLString)
+const validate = ajv.compile(schema)
 
 module.exports = function(input) {
     validate(input)
