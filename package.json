@@ -4,7 +4,7 @@
   "description": "DOI registration client",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.test.js",
+    "test": "tap --no-check-coverage test/*.test.js",
     "watch": "nodemon -e 'js,xml' bin/heiper-server"
   },
   "repository": {
