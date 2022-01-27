@@ -9,9 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.ub.uni-heidelberg.de:kba/heiper"
+    "url": "git@gitlab.ub.uni-heidelberg.de:Webservices/heiper"
   },
   "author": "kba",
+  "contributors": [{
+    "name": "Nils Weiher",
+    "email": "weiher@ub.uni-heidelberg.de"
+  }],
   "license": "MIT",
   "dependencies": {
     "ajv": "^7.2.4",
