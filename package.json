@@ -1,6 +1,6 @@
 {
   "name": "heiper",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "DOI registration client",
   "main": "index.js",
   "scripts": {
