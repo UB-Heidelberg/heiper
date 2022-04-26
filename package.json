@@ -12,10 +12,12 @@
     "url": "git@gitlab.ub.uni-heidelberg.de:Webservices/heiper"
   },
   "author": "kba",
-  "contributors": [{
-    "name": "Nils Weiher",
-    "email": "weiher@ub.uni-heidelberg.de"
-  }],
+  "contributors": [
+    {
+      "name": "Nils Weiher",
+      "email": "weiher@ub.uni-heidelberg.de"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "ajv": "^7.2.4",
@@ -31,6 +33,6 @@
   },
   "devDependencies": {
     "pm2": "^5.1.2",
-    "tap": "^15.0.9"
+    "tap": "^16.1.0"
   }
 }
